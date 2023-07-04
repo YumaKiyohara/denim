@@ -1,0 +1,28 @@
+<div class="denims-container">
+<h2>欲しいものを投稿する</h2>
+<%= form_for @want do |f| %>
+  <div class="field">
+    <%= f.text_field :brand_name, :size => 140 %>
+  </div>
+  
+  <div class="field">
+  <%= f.label :image %>
+  <%= f.file_field :image %>
+</div>
+
+  <%= f.submit "投稿する" %>
+<% end %>
+<%= link_to "一覧に戻る", wants_path %>
+
+  
+
+
+
+
+<% @wants.each do |t| %>
+    <div class="denim">
+      <%= t.brand_name %>
+      <%= t.created_at %>
+    </div>
+  <% end %>
+</div>

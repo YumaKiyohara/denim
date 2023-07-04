@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<title>Denim Closet</title>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <script src="https://kit.fontawesome.com/036928e6a6.js" crossorigin="anonymous"></script>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+
+    </head>
+  <body>
+    <header>
+      <h1 class="denimtitle">Denim Closet</h1>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+      <div class="header-list">
+          <%= link_to '<i class="material-symbols-outlined"><span class="home">home</span></i>'.html_safe, denims_path %>
+          <% if user_signed_in? %>
+            <%= link_to '<i class="material-symbols-outlined"><span class="person">person</span></i>'.html_safe, user_path(current_user.id) %>
+            <%= link_to '<i class="material-symbols-outlined"><span class="addbox">addbox</span></i>'.html_safe,new_denim_path%>
+            
+            <%= button_to destroy_user_session_path, method: :delete, class: "logout-button" do %>
+              <i class="material-symbols-outlined">logout</i>
+            <% end %>
+          <% end %>
+          <% unless user_signed_in? %>
+            <%= link_to '<i class="material-symbols-outlined"><span class="login">login</span></i>'.html_safe, new_user_session_path %>
+            <%= link_to '<i class="material-symbols-outlined"><span class="personadd">personadd</span></i>'.html_safe,new_user_registration_path %>
+          <% end %>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+      <p>Copyright © GeekSalon All Rights Reserved.</p>
+    </footer>
+  </body>
+</html> 

@@ -1,0 +1,81 @@
+.denims-container{
+font-family: 'Dancing Script', cursive;
+width: 100vw;
+display: flex;
+}
+
+.denimmypage{
+    font-family:'Merriweather', serif;
+}
+.denimmypage
+P { text-align: center }
+h1 { text-align: center }
+h2 { text-align: center }
+
+.image{
+  background-image: url("denim1.png");
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.denims-card{
+  box-shadow: 10px 10px 15px -10px;
+  width: 300px;
+  height: 360px;
+  margin: 50px;
+  position: relative;
+}
+.show-sentence{
+  position: absolute;
+  left: 80%;
+  bottom: 7%;
+  font-family: 'Merriweather', serif;
+  font-weight: bold;
+}
+
+.name-sentence{
+  position: absolute;
+  left: 45%;
+  font-family: 'Merriweather', serif;
+  font-weight: bold;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 90
+}
+.title-container h1{
+  position: relative;
+  top: 300px;
+  margin-top: 10px;
+  font-size: 90px;
+  font-weight: 200px;
+  color: rgb(39, 81, 179);
+  font-family: 'Shadows Into Light', cursive;
+}
+
+.header-sentence{
+  color: black;
+  font-size: 50px;
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+.title-container h3{
+  position: relative;
+  top: 300px;
+  margin-top: 10px;
+  margin-left: 70px;
+  font-size: 50px;
+  font-weight: 200px;
+  color: rgb(111, 137, 196);
+  font-family:'Shadows Into Light', cursive;
+}

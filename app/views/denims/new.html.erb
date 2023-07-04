@@ -1,0 +1,15 @@
+<div class="new">
+<h2>新規投稿</h2>
+<%= form_for @denim do |f| %>
+  <div class="field">
+    <%= f.text_field :body, :size => 150 %>
+  </div>
+  
+  <div class="field">
+  <%= f.label :image %>
+  <%= f.file_field :image %>
+</div>
+
+  <%= f.submit "投稿する" %>
+<% end %>
+<%= link_to "一覧に戻る", denims_path %>

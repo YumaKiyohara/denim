@@ -1,0 +1,2 @@
+module DenimHelper
+end

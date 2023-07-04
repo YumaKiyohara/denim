@@ -1,0 +1,43 @@
+<div class="image">
+<section id="f">
+<div class="title-container">
+   <h1>Put on One of the favorite DENIM</h1>
+   <h3>お気に入りのデニムを<h3>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
+</div>
+</section>
+</div>
+<li><%= link_to "新規投稿",new_denim_path, class:"header-sentence"%></li>
+<h2>投稿一覧</h2>
+<div class="denims-container">
+  <% @denims.each do |t| %>
+    <div class="denims-card">
+      <%= image_tag t.image_url, size: "300x300" if t.image? %>
+      <%= t.body %>
+      <% if user_signed_in? %>
+        <% if current_user.already_liked?(t) %>
+          <%= button_to denim_like_path(id: t.id, denim_id: t.id), method: :delete do %>
+            <i class="fas fa-heart"></i><%= t.likes.count %>
+          <% end %>
+        <% else %>
+          <%= button_to denim_likes_path(id: t.id, denim_id: t.id), method: :post do %>
+            <i class="far fa-heart"></i><%= t.likes.count %>
+          <% end %>
+        <% end %>
+      <% else %>
+        <i class="far fa-heart"></i><%= t.likes.count %>
+      <% end %>
+      <%= link_to t.user.name, user_path(t.user.id), class:"name-sentence" %>
+      <%= link_to "詳細", denim_path(t.id), class:"show-sentence" %>
+    </div>
+  <% end %>
+</div>

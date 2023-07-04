@@ -1,0 +1,30 @@
+<div class="toukou">
+<h1>投稿内容</h1>
+<div class="tweet">
+  <p><%= @denim.body %></p>
+  <p><%= @denim.created_at %></p>
+    <% if user_signed_in? %>
+      <% if current_user.already_liked?(@denim) %>
+        <%= button_to denim_like_path(@denim), method: :delete do %>
+          <i class="fas fa-heart"></i><%= @denim.likes.count %>
+        <% end %>
+      <% else %>
+        <%= button_to denim_likes_path(@denim), method: :post do %>
+          <i class="far fa-heart"></i><%= @denim.likes.count %>
+        <% end %>
+      <% end %>
+    <% else %>
+    <i class="far fa-heart"></i><%= @denim.likes.count %>
+    <% end %>
+    <% if user_signed_in? && current_user.id == @denim.user.id  %>
+  <%= link_to "編集", edit_denim_path(@denim.id) %>
+  <%= button_to "削除", denim_path(@denim.id), method: :delete %>
+  <% end %>
+</div>
+
+<h2>いいねしたユーザー</h2>
+<% @denim.liked_users.each do |user| %>
+  <li><%= user.email %></li>
+<% end %>
+
+<%= link_to "投稿一覧に戻る", denims_path %>
