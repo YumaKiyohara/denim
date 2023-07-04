@@ -1,5 +1,5 @@
 databases:
-  - name: denim-DB
+  - name: Denim-DB
     databaseName: denim-db
     user: denim
     region: singapore
