@@ -1,7 +1,7 @@
 databases:
-  - name: Renderで作成したDBアプリ名
-    databaseName: 「Info内のConnectionsにあるDatabase」を入れる
-    user: Renderで作成したRailsのアプリ名
+  - name: denim-DB
+    databaseName: denim-db
+    user: denim
     region: singapore
 
 services:
